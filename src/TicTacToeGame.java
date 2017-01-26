@@ -1,9 +1,10 @@
-import java.util.ArrayList;
-
 /**
  * @author rtv
  */
 public class TicTacToeGame implements Game {
+
+    private final static int P1_MARK = 1;
+    private final static int P2_MARK = -1;
 
     private Player p1, p2;
     private Board board = new Board(3, 3);
@@ -15,18 +16,36 @@ public class TicTacToeGame implements Game {
     }
 
     @Override
-    public Player play() {
+    public Player play() throws PlayerOneIllegalTurnException,
+            PlayerTwoIllegalTurnException {
 
         Mark p1turn, p2turn = null;
 
+        int row, col;
         while (!board.isFull()) {
+
+            /* Player 1 Turn */
             p1turn = p1.doTurn(p2turn);
+            row = p1turn.getRow();
+            col = p1turn.getCol();
+            if (board.isMarked(row, col))
+                throw new PlayerOneIllegalTurnException();
+            else
+                board.mark(row, col, P1_MARK);
             if (this.hasWinner())
                 return p1;
 
+            /* Player 2 Turn */
             p2turn = p2.doTurn(p1turn);
+            row = p2turn.getRow();
+            col = p2turn.getCol();
+            if (board.isMarked(row, col))
+                throw new PlayerTwoIllegalTurnException();
+            else
+                board.mark(row, col, P2_MARK);
             if (this.hasWinner())
                 return p2;
+
         }
 
         return null;

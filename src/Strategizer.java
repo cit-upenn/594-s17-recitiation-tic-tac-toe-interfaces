@@ -18,20 +18,8 @@ public class Strategizer {
     }
 
     public Mark nextMove(Mark prevMove) {
-        boolean valid = board.markOpponentMove(prevMove.getX(), prevMove.getY());
-
-        if (valid) {
-            availableMoves.remove(prevMove);
-
-
-
-        } else {
-            return null;
-        }
-
-
-
 
     }
+
 
 }
