@@ -1,6 +1,6 @@
-import java.lang.management.BufferPoolMXBean;
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * @author rtv
@@ -8,19 +8,14 @@ import java.util.HashSet;
 public class MyPlayer implements Player {
 
     private final String name;
-
-    private HashSet<Mark> availableMoves = new HashSet<>();
-
-    private Board board = new Board(3,3 );
+    private List<Mark> availableMoves = new ArrayList<>();
 
     public MyPlayer(String name) {
         this.name = name;
-
-        this.availableMoves = new HashSet<>();
-        for (int i = 0; i < board.rows(); i++)
-            for (int j = 0; j < board.cols(); j++)
+        for (int i = 0; i < 3; i++)
+            for (int j = 0; j < 3; j++)
                 availableMoves.add(new Mark(i, j));
-
+        Collections.shuffle(availableMoves);
     }
 
     @Override
@@ -30,11 +25,7 @@ public class MyPlayer implements Player {
 
     @Override
     public Mark doTurn(Mark prevMarkMadeByOpponent) {
-
-        board.mark(prevMarkMadeByOpponent.getRow(), prevMarkMadeByOpponent.getCol(), -1);
-
-        if
-
-        return ;
+        availableMoves.remove(prevMarkMadeByOpponent);
+        return availableMoves.remove(availableMoves.size() - 1);
     }
 }
