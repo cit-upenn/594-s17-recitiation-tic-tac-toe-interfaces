@@ -5,32 +5,34 @@
  */
 public final class Mark {
 
-    private final int x, y;
+    private final int i, j;
 
-    public Mark(int x, int y) {
-        this.x = x;
-        this.y = y;
+    public Mark(int i, int j) throws IllegalArgumentException {
+        if (i < 0 || j < 0 || i > 2 || j > 2)
+            throw new IllegalArgumentException();
+        this.i = i;
+        this.j = j;
     }
 
-    public int getX() {
-        return x;
+    public int getRow() {
+        return i;
     }
 
-    public int getY() {
-        return y;
+    public int getCol() {
+        return j;
     }
 
     @Override
     public int hashCode() {
         int hash = 17;
-        hash = 37 * hash + x;
-        hash = 37 * hash + y;
+        hash = 37 * hash + i;
+        hash = 37 * hash + j;
         return hash;
     }
 
     @Override
     public boolean equals(Object o) {
         Mark other = (Mark) o;
-        return other.getX() == x && other.getY() == y;
+        return other.getRow() == i && other.getCol() == j;
     }
 }

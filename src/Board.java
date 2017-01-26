@@ -16,28 +16,17 @@ public class Board {
 
     }
 
-    public boolean markMyMove(int x, int y) {
-        if (board[x][y] == 0 || board[x][y] == -1) {
-            return false;
-        } else {
-            board[x][y] = '1';
-            marksMade++;
-            return true;
-        }
+    public void mark(int i, int j, int mark) {
+        board[i][j] = mark;
+        marksMade++;
     }
 
-    public boolean markOpponentMove(int x, int y) {
-        if (board[x][y] == 0 || board[x][y] == 1) {
-            return false;
-        } else {
-            board[x][y] = -1;
-            marksMade++;
-            return true;
-        }
+    public boolean isMarked(int i, int j) {
+        return board[i][j] == 0;
     }
 
-    public int at(int x, int y) {
-        return board[x][y];
+    public int at(int i, int j) {
+        return board[i][j];
     }
 
     public int rows() {
