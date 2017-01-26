@@ -1,8 +1,9 @@
 /**
  * Holds the position of a mark on the tic-tac-toe board.
+ * -> DO NOT MODIFY <-
  * @author rtv
  */
-public class Mark {
+public final class Mark {
 
     private final int x, y;
 
@@ -17,5 +18,19 @@ public class Mark {
 
     public int getY() {
         return y;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 17;
+        hash = 37 * hash + x;
+        hash = 37 * hash + y;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        Mark other = (Mark) o;
+        return other.getX() == x && other.getY() == y;
     }
 }
