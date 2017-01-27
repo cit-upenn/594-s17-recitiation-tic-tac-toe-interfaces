@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /**
  * @author rtv
  */
@@ -21,6 +23,7 @@ public class TicTacToeGame implements Game {
 
         Mark p1turn, p2turn = null;
 
+        Scanner scan = new Scanner(System.in);
         int row, col;
         while (!board.isFull()) {
 
@@ -32,6 +35,13 @@ public class TicTacToeGame implements Game {
                 throw new PlayerOneIllegalTurnException();
             else
                 board.mark(row, col, P1_MARK);
+
+            System.out.println("P1's turn:");
+            System.out.println(printResult());
+
+            /* Hit enter to proceed */
+            scan.nextLine();
+
             if (this.hasWinner())
                 return p1;
 
@@ -43,8 +53,15 @@ public class TicTacToeGame implements Game {
                 throw new PlayerTwoIllegalTurnException();
             else
                 board.mark(row, col, P2_MARK);
+
+            System.out.println("P2's turn:");
+            System.out.println(printResult());
+
             if (this.hasWinner())
                 return p2;
+
+            /* Hit enter to proceed */
+            scan.nextLine();
 
         }
 

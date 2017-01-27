@@ -3,14 +3,15 @@ import java.util.Collections;
 import java.util.List;
 
 /**
+ *
  * @author rtv
  */
-public class MyPlayer implements Player {
+public class RandomPlayer implements Player {
 
     private final String name;
     private List<Mark> availableMoves = new ArrayList<>();
 
-    public MyPlayer(String name) {
+    public RandomPlayer(String name) {
         this.name = name;
         for (int i = 0; i < 3; i++)
             for (int j = 0; j < 3; j++)

@@ -22,7 +22,7 @@ public class Board {
     }
 
     public boolean isMarked(int i, int j) {
-        return board[i][j] == 0;
+        return board[i][j] != 0;
     }
 
     public int at(int i, int j) {

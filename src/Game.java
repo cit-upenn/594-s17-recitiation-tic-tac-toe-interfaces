@@ -6,19 +6,20 @@ public interface Game {
     /**
      * Initializes the game with two players
      */
-    void init(Player p1, Player p2);
+    public void init(Player p1, Player p2);
 
     /**
      * Runs the game and returns the winning player or null if there isn't
      * one. Throws the appropriate exception if a player makes an illegal
-     * move. e.g. Making
+     * move. e.g. Making an off-the-grid or already occupied move
      */
-    Player play() throws PlayerOneIllegalTurnException, PlayerTwoIllegalTurnException;
+    public Player play() throws PlayerOneIllegalTurnException,
+            PlayerTwoIllegalTurnException;
 
     /**
      * Returns true if there is a winner at the end of the game
      */
-    boolean hasWinner();
+    public boolean hasWinner();
 
     /**
      * Print an ASCII representation of the final game state
@@ -26,7 +27,7 @@ public interface Game {
      *       O X X
      *       O X O
      */
-    String printResult();
+    public String printResult();
 
 
 }

@@ -13,7 +13,7 @@ public interface Player {
      * null Mark object. Assume the method will only receive a legal move.
      * Returning an illegal move will cause the game to end in a loss.
      * @param prevMarkMadeByOpponent coordinates of the last mark made
-     * @return the next mark to make
+     * @return the next move to make
      */
     public Mark doTurn(Mark prevMarkMadeByOpponent);
 

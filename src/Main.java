@@ -4,13 +4,21 @@ public class Main {
 
         TicTacToeGame game = new TicTacToeGame();
 
+        Player p1 = new RandomPlayer("one");
+        Player p2 = new RandomPlayer("two");
 
-        Player p1 = new Player();
+        game.init(p1, p2);
 
-        game.init();
+        try {
+            game.play();
+        } catch (PlayerOneIllegalTurnException e) {
+            System.out.println("p1 illegal");
+        } catch (PlayerTwoIllegalTurnException e) {
+            System.out.println("p2 illegal");
+        }
 
-
-
+        System.out.println("Winner? " + game.hasWinner());
+        System.out.println(game.printResult());
 
     }
 }
