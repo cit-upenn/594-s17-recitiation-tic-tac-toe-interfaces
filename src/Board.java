@@ -29,16 +29,9 @@ public class Board {
         return board[i][j];
     }
 
-    public int rows() {
-        return board.length;
-    }
-
-    public int cols() {
-        return board[0].length;
-    }
 
     public boolean isFull() {
-        return marksMade == rows() * cols();
+        return marksMade == board.length * board[0].length;
     }
 
 }

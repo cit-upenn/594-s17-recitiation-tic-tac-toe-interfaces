@@ -3,7 +3,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- *
+ * Makes a move at random at any available position
  * @author rtv
  */
 public class RandomPlayer implements Player {
