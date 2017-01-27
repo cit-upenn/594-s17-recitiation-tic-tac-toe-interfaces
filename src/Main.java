@@ -9,11 +9,12 @@ public class Main {
         TicTacToeGame game = new TicTacToeGame();
         game.init(p1, p2);
 
+        System.out.println("Hit enter to step through game.");
         try {
 
             Player winner = game.play();
             String winnerName = game.hasWinner() ? winner.name() : "Tie";
-            System.out.println("Winner:" + winnerName);
+            System.out.println("Winner: " + winnerName);
             System.out.println(game.printResult());
 
 
